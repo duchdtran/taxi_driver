@@ -1,4 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:taxi_driver/views/resources/font_config.dart';
+import 'package:taxi_driver/views/widgets/app_button.dart';
+import 'package:taxi_driver/views/widgets/app_rating_bar.dart';
 
 void main() {
   runApp(MyApp());
@@ -94,12 +99,17 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'You have pushed the button this many times:', style: TextStyle(fontFamily: FontConfig.fontFamily),
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Container(width: double.infinity,child: AppButton(label: 'Login',)),
+            Container(width: double.infinity,child: AppButton.round(label: 'Login', onPressed: (){})),
+            Container(width: double.infinity,child: AppButton.outline(label: 'Login', onPressed: (){})),
+            Container(width: double.infinity,child: AppButton.icon(label: 'Login', onPressed: (){})),
+            Container(width: double.infinity,child: AppButton.elevated(label: 'Login', onPressed: (){})),
           ],
         ),
       ),
