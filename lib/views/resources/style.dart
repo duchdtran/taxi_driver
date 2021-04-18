@@ -35,6 +35,12 @@ class AppStyles {
     height: 2.5,
     color: AppColors.colorNightRider,
   );
+  static const stylePoppinsRegular12 = TextStyle(
+    fontFamily: FontConfig.fontFamily,
+    fontSize: 12,
+    height: 1.3,
+    color: AppColors.colorNightRider,
+  );
   static const stylePoppinsLight14 = TextStyle(
     fontFamily: FontConfig.fontFamily,
     fontWeight: FontWeight.w300,

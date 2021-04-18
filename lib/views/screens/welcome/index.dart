@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:taxi_driver/views/resources/color.dart';
 import 'package:taxi_driver/views/resources/dimension.dart';
 import 'package:taxi_driver/views/resources/style.dart';
+import 'package:taxi_driver/views/routers/AppRouters.dart';
 import 'package:taxi_driver/views/screens/welcome/components/show_case_page_view.dart';
 import 'package:taxi_driver/views/widgets/app_button.dart';
 import 'package:taxi_driver/views/widgets/app_sized_box.dart';
@@ -30,7 +31,9 @@ class WelcomeScreen extends StatelessWidget {
         AppSizedBox.height(50),
         _buildLoginButton(
           context,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRouters.SIGN_IN_SCREEN);
+          },
           padding: EdgeInsets.symmetric(
             horizontal: AppDimension.screen_horizontal_margin,
           ),
