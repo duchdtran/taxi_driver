@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
-import '../../routers/AppRouters.dart';
+import '../../routers/app_routers.dart';
 import '../../widgets/app_button.dart';
-import '../../widgets/app_sized_box.dart';
 import '../base/_index.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -27,19 +26,19 @@ Widget _buildBody(BuildContext context) {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const AppSizedBox.height(200),
+          const SizedBox(height: 200),
           _buildTitle(context),
-          const AppSizedBox.height(36),
+          const SizedBox(height: 36),
           _buildPhoneNumberFormField(context),
-          const AppSizedBox.height(40),
+          const SizedBox(height: 40),
           _buildPasswordFormField(context),
-          const AppSizedBox.height(30),
+          const SizedBox(height: 30),
           _buildForgotPasswordButton(context),
-          const AppSizedBox.height(30),
+          const SizedBox(height: 30),
           _buildLoginButton(context),
-          const AppSizedBox.height(35),
+          const SizedBox(height: 35),
           _buildCreateAccountButton(context, onPressed: (){
-            Navigator.pushNamed(context, AppRouters.SIGN_UP_SCREEN);
+            Navigator.pushNamed(context, AppRouters.signUpScreen);
           }),
         ],
       ),

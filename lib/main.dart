@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'views/routers/AppRouters.dart';
+import 'views/routers/app_routers.dart';
 import 'views/screens/sign_in/index.dart';
 import 'views/screens/sign_up/index.dart';
+import 'views/screens/sign_up/otp/index.dart';
 import 'views/screens/welcome/index.dart';
 
 void main() {
@@ -15,9 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        AppRouters.WELCOME_SCREEN: (context) => WelcomeScreen(),
-        AppRouters.SIGN_IN_SCREEN: (context) => SignInScreen(),
-        AppRouters.SIGN_UP_SCREEN: (context) => SignUpScreen(),
+        AppRouters.welcomeScreen: (context) => WelcomeScreen(),
+        AppRouters.signInScreen: (context) => SignInScreen(),
+        AppRouters.signUpScreen: (context) => SignUpScreen(),
+        AppRouters.signUpOTPScreen: (context) => SignUpOTPScreen(),
       },
     );
   }
