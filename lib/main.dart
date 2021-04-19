@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/screens/welcome/welcome.dart';
+import 'views/screens/welcome/welcome.dart';
 
 void main() {
   runApp(MyApp());

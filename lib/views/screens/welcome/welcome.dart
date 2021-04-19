@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/dimension.dart';
-import 'package:taxi_driver/views/resources/style.dart';
-import 'package:taxi_driver/views/screens/welcome/components/show_case_page_view.dart';
-import 'package:taxi_driver/views/widgets/app_button.dart';
-import 'package:taxi_driver/views/widgets/app_sized_box.dart';
+import '../../resources/color.dart';
+import '../../resources/dimension.dart';
+import '../../resources/style.dart';
+import '../../widgets/app_button.dart';
+import '../../widgets/app_sized_box.dart';
+import 'components/show_case_page_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -19,31 +18,31 @@ class WelcomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppSizedBox.height(50),
+        const AppSizedBox.height(50),
         _buildTitle(
           context,
-          padding: EdgeInsets.symmetric(
-              horizontal: AppDimension.screen_horizontal_margin),
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppDimension.screenHorizontalMargin),
         ),
-        AppSizedBox.height(60),
+        const AppSizedBox.height(60),
         Expanded(child: _buildShowCasePageView(context)),
-        AppSizedBox.height(50),
+        const AppSizedBox.height(50),
         _buildLoginButton(
           context,
           onPressed: () {},
-          padding: EdgeInsets.symmetric(
-            horizontal: AppDimension.screen_horizontal_margin,
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppDimension.screenHorizontalMargin,
           ),
         ),
-        AppSizedBox.height(35),
+        const AppSizedBox.height(35),
         _buildCreateAccountButton(
           context,
           onPressed: () {},
-          padding: EdgeInsets.symmetric(
-            horizontal: AppDimension.screen_horizontal_margin,
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppDimension.screenHorizontalMargin,
           ),
         ),
-        AppSizedBox.height(48),
+        const AppSizedBox.height(48),
       ],
     );
   }
@@ -52,7 +51,7 @@ class WelcomeScreen extends StatelessWidget {
     return Padding(
       padding: padding,
       child: RichText(
-        text: TextSpan(
+        text: const TextSpan(
           children: [
             TextSpan(
               text: 'Hello, nice to meet you!\n',

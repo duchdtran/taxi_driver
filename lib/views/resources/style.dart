@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/font_config.dart';
+import 'color.dart';
+import 'font_config.dart';
 
 class AppStyles {
   static const stylePoppinsBold24 = TextStyle(

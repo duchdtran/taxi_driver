@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/style.dart';
+import '../resources/color.dart';
+import '../resources/style.dart';
 
+// ignore: must_be_immutable
 class AppButton extends StatelessWidget {
   AppButton({
-    Key key,
     @required this.label,
     @required this.onPressed,
+    Key key,
     this.textStyle = AppStyles.stylePoppinsBold14,
     this.backgroundColor = AppColors.colorApple,
   }) : super(key: key);
 
   AppButton.outline({
-    Key key,
     @required this.label,
     @required this.onPressed,
+    Key key,
     this.side = const BorderSide(color: AppColors.colorApple),
     TextStyle textStyle,
   }) : super(key: key) {
@@ -23,9 +24,9 @@ class AppButton extends StatelessWidget {
   }
 
   AppButton.round({
-    Key key,
     @required this.label,
     @required this.onPressed,
+    Key key,
     this.backgroundColor = AppColors.colorApple,
     this.textStyle = AppStyles.stylePoppinsBold14,
     BorderRadius borderRadius,
@@ -34,9 +35,9 @@ class AppButton extends StatelessWidget {
   }
 
   AppButton.icon({
-    Key key,
     @required this.label,
     @required this.onPressed,
+    Key key,
     this.backgroundColor = AppColors.colorApple,
     this.textStyle = AppStyles.stylePoppinsBold14,
     this.padding = const EdgeInsets.symmetric(horizontal: 40),
@@ -45,16 +46,16 @@ class AppButton extends StatelessWidget {
   }) : super(key: key) {
     this.borderRadius = borderRadius ?? BorderRadius.circular(6);
     this.icon = icon ??
-        Icon(
+        const Icon(
           Icons.arrow_forward,
           color: AppColors.colorWhite,
         );
   }
 
   AppButton.elevated({
-    Key key,
     @required this.label,
     @required this.onPressed,
+    Key key,
     this.backgroundColor = AppColors.colorWhite,
     this.padding = const EdgeInsets.symmetric(horizontal: 40),
     this.elevation = 2,
@@ -64,7 +65,7 @@ class AppButton extends StatelessWidget {
   }) : super(key: key) {
     this.borderRadius = borderRadius ?? BorderRadius.circular(6);
     this.icon = icon ??
-        Icon(
+        const Icon(
           Icons.arrow_forward,
           color: AppColors.colorSilver,
         );
@@ -84,7 +85,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget child = icon != null
+    final child = icon != null
         ? Padding(
             padding: padding,
             child: Row(
@@ -103,7 +104,6 @@ class AppButton extends StatelessWidget {
             style: textStyle,
           );
     return TextButton(
-      child: child,
       style: TextButton.styleFrom(
         backgroundColor: backgroundColor,
         side: side,
@@ -114,6 +114,7 @@ class AppButton extends StatelessWidget {
         elevation: elevation,
       ),
       onPressed: onPressed,
+      child: child,
     );
   }
 }
