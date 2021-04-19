@@ -35,16 +35,23 @@ class AppStyles {
     height: 2.5,
     color: AppColors.colorNightRider,
   );
+  static const stylePoppinsLight14 = TextStyle(
+    fontFamily: FontConfig.fontFamily,
+    fontWeight: FontWeight.w300,
+    fontSize: 14,
+    color: AppColors.colorMatterhorn,
+  );
   static const stylePoppinsRegular12 = TextStyle(
     fontFamily: FontConfig.fontFamily,
     fontSize: 12,
     height: 1.3,
     color: AppColors.colorNightRider,
   );
-  static const stylePoppinsLight14 = TextStyle(
+  static const stylePoppinsBold12 = TextStyle(
     fontFamily: FontConfig.fontFamily,
-    fontWeight: FontWeight.w300,
-    fontSize: 14,
-    color: AppColors.colorMatterhorn,
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    height: 1.3,
+    color: AppColors.colorNightRider,
   );
 }

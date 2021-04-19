@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_driver/views/routers/AppRouters.dart';
 import 'package:taxi_driver/views/screens/sign_in/index.dart';
+import 'package:taxi_driver/views/screens/sign_up/index.dart';
 import 'package:taxi_driver/views/screens/welcome/index.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         AppRouters.WELCOME_SCREEN: (context) => WelcomeScreen(),
         AppRouters.SIGN_IN_SCREEN: (context) => SignInScreen(),
+        AppRouters.SIGN_UP_SCREEN: (context) => SignUpScreen(),
       },
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:taxi_driver/views/resources/color.dart';
 import 'package:taxi_driver/views/resources/dimension.dart';
 import 'package:taxi_driver/views/resources/style.dart';
+import 'package:taxi_driver/views/routers/AppRouters.dart';
 import 'package:taxi_driver/views/screens/base/_index.dart';
 import 'package:taxi_driver/views/widgets/app_button.dart';
 import 'package:taxi_driver/views/widgets/app_sized_box.dart';
@@ -36,7 +37,9 @@ Widget _buildBody(BuildContext context) {
           AppSizedBox.height(30),
           _buildLoginButton(context),
           AppSizedBox.height(35),
-          _buildCreateAccountButton(context),
+          _buildCreateAccountButton(context, onPressed: (){
+            Navigator.pushNamed(context, AppRouters.SIGN_UP_SCREEN);
+          }),
         ],
       ),
     ),
@@ -90,9 +93,9 @@ Widget _buildLoginButton(BuildContext context) {
   return AppButton.icon(label: 'Login', onPressed: () {});
 }
 
-Widget _buildCreateAccountButton(BuildContext context) {
+Widget _buildCreateAccountButton(BuildContext context, {VoidCallback onPressed}) {
   return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       child: Text(
         'Or Create My Account',
         style: AppStyles.stylePoppinsLight14,
