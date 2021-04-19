@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
-import '../../routers/AppRouters.dart';
+import '../../routers/app_routers.dart';
 import '../../widgets/app_button.dart';
-import '../../widgets/app_sized_box.dart';
 import 'components/show_case_page_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -20,33 +19,35 @@ class WelcomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppSizedBox.height(50),
+        const SizedBox(height: 50),
         _buildTitle(
           context,
           padding: const EdgeInsets.symmetric(
               horizontal: AppDimension.screenHorizontalMargin),
         ),
-        const AppSizedBox.height(60),
+        const SizedBox(height: 60),
         Expanded(child: _buildShowCasePageView(context)),
-        const AppSizedBox.height(50),
+        const SizedBox(height: 50),
         _buildLoginButton(
           context,
           onPressed: () {
-            Navigator.pushNamed(context, AppRouters.SIGN_IN_SCREEN);
+            Navigator.pushNamed(context, AppRouters.signInScreen);
           },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,
           ),
         ),
-        const AppSizedBox.height(35),
+        const SizedBox(height: 35),
         _buildCreateAccountButton(
           context,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRouters.signUpScreen);
+          },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,
           ),
         ),
-        const AppSizedBox.height(48),
+        const SizedBox(height: 48),
       ],
     );
   }

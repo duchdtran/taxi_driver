@@ -8,8 +8,8 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
+import '../../routers/app_routers.dart';
 import '../../widgets/app_button.dart';
-import '../../widgets/app_sized_box.dart';
 import '../base/_index.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -31,12 +31,14 @@ class SignUpScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildTitle(context),
-          const AppSizedBox.height(30),
+          const SizedBox(height: 30),
           _buildPhoneNumberFormField(context),
-          const AppSizedBox.height(45),
+          const SizedBox(height: 45),
           _buildTermAndPrivacy(context),
-          const AppSizedBox.height(45),
-          _buildContinueButton(context),
+          const SizedBox(height: 45),
+          _buildContinueButton(context, onPress: () {
+            Navigator.pushNamed(context, AppRouters.signUpOTPScreen);
+          }),
         ],
       ),
     );
@@ -115,7 +117,10 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildContinueButton(BuildContext context) {
-    return AppButton.elevated(label: 'Continue', onPressed: () {});
+  Widget _buildContinueButton(BuildContext context, {VoidCallback onPress}) {
+    return AppButton.elevated(
+      label: 'Continue',
+      onPressed: onPress,
+    );
   }
 }
