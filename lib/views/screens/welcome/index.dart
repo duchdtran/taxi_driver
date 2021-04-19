@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
+import '../../routers/AppRouters.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_sized_box.dart';
-import 'package:taxi_driver/views/routers/AppRouters.dart';
 import 'components/show_case_page_view.dart';
 
 class WelcomeScreen extends StatelessWidget {

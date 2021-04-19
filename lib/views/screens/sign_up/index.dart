@@ -1,13 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/dimension.dart';
-import 'package:taxi_driver/views/resources/style.dart';
-import 'package:taxi_driver/views/screens/base/_index.dart';
-import 'package:taxi_driver/views/widgets/app_button.dart';
-import 'package:taxi_driver/views/widgets/app_sized_box.dart';
+
+import '../../resources/color.dart';
+import '../../resources/dimension.dart';
+import '../../resources/style.dart';
+import '../../widgets/app_button.dart';
+import '../../widgets/app_sized_box.dart';
+import '../base/_index.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -21,19 +24,19 @@ class SignUpScreen extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: AppDimension.screen_horizontal_margin,
+        horizontal: AppDimension.screenHorizontalMargin,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildTitle(context),
-          AppSizedBox.height(30),
+          const AppSizedBox.height(30),
           _buildPhoneNumberFormField(context),
-          AppSizedBox.height(45),
+          const AppSizedBox.height(45),
           _buildTermAndPrivacy(context),
-          AppSizedBox.height(45),
-          _buildContineButton(context),
+          const AppSizedBox.height(45),
+          _buildContinueButton(context),
         ],
       ),
     );
@@ -41,7 +44,7 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _buildTitle(BuildContext context) {
     return RichText(
-        text: TextSpan(children: [
+        text: const TextSpan(children: [
       TextSpan(
         text: 'Hello, nice to meet you!\n',
         style: AppStyles.stylePoppinsRegular12,
@@ -55,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _buildPhoneNumberFormField(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(11),
+      padding: const EdgeInsets.all(11),
       decoration: BoxDecoration(
         color: AppColors.colorWhite,
         borderRadius: BorderRadius.circular(12),
@@ -63,29 +66,29 @@ class SignUpScreen extends StatelessWidget {
           BoxShadow(
             color: AppColors.colorNightRider.withOpacity(0.1),
             blurRadius: 15,
-            offset: Offset(0, 5), // changes position of shadow
+            offset: const Offset(0, 5), // changes position of shadow
           ),
         ],
       ),
       child: InternationalPhoneNumberInput(
-        onInputChanged: (PhoneNumber number) {
-          print(number.phoneNumber);
+        onInputChanged: (number) {
+          log(number.phoneNumber);
         },
-        onInputValidated: (bool value) {
-          print(value);
+        onInputValidated: (value) {
+          log(value.toString());
         },
-        selectorConfig: SelectorConfig(
+        selectorConfig: const SelectorConfig(
           selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
         ),
         hintText: 'Enter your phone number',
         ignoreBlank: false,
         autoValidateMode: AutovalidateMode.disabled,
-        selectorTextStyle: TextStyle(color: Colors.black),
+        selectorTextStyle: const TextStyle(color: Colors.black),
         formatInput: false,
         keyboardType:
-            TextInputType.numberWithOptions(signed: true, decimal: true),
-        onSaved: (PhoneNumber number) {
-          print('On Saved: $number');
+            const TextInputType.numberWithOptions(signed: true, decimal: true),
+        onSaved: (number) {
+          log('On Saved: $number');
         },
       ),
     );
@@ -94,7 +97,7 @@ class SignUpScreen extends StatelessWidget {
   Widget _buildTermAndPrivacy(BuildContext context) {
     return RichText(
       text: TextSpan(children: [
-        TextSpan(
+        const TextSpan(
             text: 'By creating an account, you agree to our\n',
             style: AppStyles.stylePoppinsRegular12),
         TextSpan(
@@ -102,7 +105,7 @@ class SignUpScreen extends StatelessWidget {
           style: AppStyles.stylePoppinsBold12,
           recognizer: TapGestureRecognizer()..onTap = () {},
         ),
-        TextSpan(text: ' and ', style: AppStyles.stylePoppinsRegular12),
+        const TextSpan(text: ' and ', style: AppStyles.stylePoppinsRegular12),
         TextSpan(
           text: 'Privacy Policy',
           style: AppStyles.stylePoppinsBold12,
@@ -112,7 +115,7 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildContineButton(BuildContext context) {
+  Widget _buildContinueButton(BuildContext context) {
     return AppButton.elevated(label: 'Continue', onPressed: () {});
   }
 }

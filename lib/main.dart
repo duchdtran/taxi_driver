@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/routers/AppRouters.dart';
-import 'package:taxi_driver/views/screens/sign_in/index.dart';
-import 'package:taxi_driver/views/screens/sign_up/index.dart';
-import 'package:taxi_driver/views/screens/welcome/index.dart';
+
+import 'views/routers/AppRouters.dart';
+import 'views/screens/sign_in/index.dart';
+import 'views/screens/sign_up/index.dart';
+import 'views/screens/welcome/index.dart';
 
 void main() {
   runApp(MyApp());
