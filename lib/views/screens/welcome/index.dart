@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_sized_box.dart';
+import 'package:taxi_driver/views/routers/AppRouters.dart';
 import 'components/show_case_page_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -29,7 +31,9 @@ class WelcomeScreen extends StatelessWidget {
         const AppSizedBox.height(50),
         _buildLoginButton(
           context,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRouters.SIGN_IN_SCREEN);
+          },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,
           ),

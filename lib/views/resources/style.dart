@@ -41,4 +41,17 @@ class AppStyles {
     fontSize: 14,
     color: AppColors.colorMatterhorn,
   );
+  static const stylePoppinsRegular12 = TextStyle(
+    fontFamily: FontConfig.fontFamily,
+    fontSize: 12,
+    height: 1.3,
+    color: AppColors.colorNightRider,
+  );
+  static const stylePoppinsBold12 = TextStyle(
+    fontFamily: FontConfig.fontFamily,
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    height: 1.3,
+    color: AppColors.colorNightRider,
+  );
 }
