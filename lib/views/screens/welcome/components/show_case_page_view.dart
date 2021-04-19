@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/images.dart';
-import 'package:taxi_driver/views/widgets/app_sized_box.dart';
+import '../../../resources/color.dart';
+import '../../../resources/images.dart';
+import '../../../widgets/app_sized_box.dart';
 
 class ShowCasePageView extends StatelessWidget {
-  int indexPosition = 0;
+  final int indexPosition = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -12,10 +12,10 @@ class ShowCasePageView extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Image.asset(AppImages.BG_WELCOME),
+            child: Image.asset(AppImages.bgWelcome),
           ),
         ),
-        AppSizedBox.height(50),
+        const AppSizedBox.height(50),
         Center(
           child: Wrap(
             spacing: 10,

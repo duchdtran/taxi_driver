@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class AppRatingBar extends StatelessWidget {
-  AppRatingBar({
+  const AppRatingBar({
     Key key,
     this.minRating = 1,
     this.initialRating = 5,
     this.itemColor = Colors.green,
     this.itemCount = 5,
-    this.itemPadding = const EdgeInsets.symmetric(horizontal: 4.0),
+    this.itemPadding = const EdgeInsets.symmetric(horizontal: 4),
     this.itemSize = 25,
     this.onRatingUpdate,
   }) : super(key: key);
