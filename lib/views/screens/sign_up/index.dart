@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../resources/color.dart';
-import '../../resources/dimension.dart';
 import '../../resources/style.dart';
 import '../../routers/app_routers.dart';
 import '../../widgets/app_button.dart';
@@ -16,31 +15,18 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      title: 'BACK',
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppDimension.screenHorizontalMargin,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildTitle(context),
-          const SizedBox(height: 30),
-          _buildPhoneNumberFormField(context),
-          const SizedBox(height: 45),
-          _buildTermAndPrivacy(context),
-          const SizedBox(height: 45),
-          _buildContinueButton(context, onPress: () {
-            Navigator.pushNamed(context, AppRouters.signUpOTPScreen);
-          }),
-        ],
-      ),
+      children: [
+        const SizedBox(height: 224),
+        _buildTitle(context),
+        const SizedBox(height: 30),
+        _buildPhoneNumberFormField(context),
+        const SizedBox(height: 45),
+        _buildTermAndPrivacy(context),
+        const SizedBox(height: 45),
+        _buildContinueButton(context, onPress: () {
+          Navigator.pushNamed(context, AppRouters.signUpOTPScreen);
+        }),
+      ],
     );
   }
 

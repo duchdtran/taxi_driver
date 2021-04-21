@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/color.dart';
 
-import '../../../resources/dimension.dart';
+import '../../../resources/color.dart';
 import '../../../resources/images.dart';
+import '../../../routers/app_routers.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_text_form_field.dart';
 import '../../base/_index.dart';
@@ -12,43 +12,31 @@ class SignUpPersonalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      title: 'BACK',
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppDimension.screenHorizontalMargin,
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 37),
-            _buildAvatar(context),
-            const SizedBox(height: 50),
-            _buildTypeAccount(context),
-            const SizedBox(height: 43),
-            _buildFirstNameFormField(context),
-            const SizedBox(height: 25),
-            _buildLastNameFormField(context),
-            const SizedBox(height: 25),
-            _buildHomeAddressFormField(context),
-            const SizedBox(height: 25),
-            _buildPasswordFormField(context),
-            const SizedBox(height: 45),
-            _buildCreateAccountButton(context),
-            const SizedBox(height: 62),
-          ],
-        ),
-      ),
+      children: [
+        const SizedBox(height: 37),
+        _buildAvatar(context),
+        const SizedBox(height: 50),
+        _buildTypeAccount(context),
+        const SizedBox(height: 43),
+        _buildFirstNameFormField(context),
+        const SizedBox(height: 25),
+        _buildLastNameFormField(context),
+        const SizedBox(height: 25),
+        _buildHomeAddressFormField(context),
+        const SizedBox(height: 25),
+        _buildPasswordFormField(context),
+        const SizedBox(height: 45),
+        _buildCreateAccountButton(context, onPressed: () {
+          Navigator.pushNamed(context, AppRouters.signUpBankCardScreen);
+        }),
+        const SizedBox(height: 62),
+      ],
     );
   }
 
   Widget _buildAvatar(BuildContext context) {
-    return Container(
-      width: 144,
+    return SizedBox(
+      width: double.infinity,
       height: 144,
       child: Stack(
         fit: StackFit.expand,
@@ -76,7 +64,7 @@ class SignUpPersonalScreen extends StatelessWidget {
   }
 
   Widget _buildTypeAccount(BuildContext context) {
-    return AccountType(
+    return const AccountType(
       labels: ['Free', 'Buess'],
     );
   }
@@ -107,7 +95,8 @@ class SignUpPersonalScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCreateAccountButton(BuildContext context) {
-    return AppButton.icon(label: 'Create Account', onPressed: () {});
+  Widget _buildCreateAccountButton(BuildContext context,
+      {VoidCallback onPressed}) {
+    return AppButton.icon(label: 'Create Account', onPressed: onPressed);
   }
 }
