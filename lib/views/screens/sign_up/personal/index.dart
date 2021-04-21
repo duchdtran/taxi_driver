@@ -12,7 +12,6 @@ class SignUpPersonalScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      title: 'BACK',
       children: [
         const SizedBox(height: 37),
         _buildAvatar(context),

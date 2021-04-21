@@ -11,7 +11,6 @@ class SignUpOTPScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      title: 'BACK',
       children: [
         const SizedBox(height: 148),
         _buildTitle(context),

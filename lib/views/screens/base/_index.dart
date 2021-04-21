@@ -6,7 +6,7 @@ import '../../resources/images.dart';
 import '../../resources/style.dart';
 
 class BaseScreen extends StatelessWidget {
-  const BaseScreen({Key key, this.title, this.children}) : super(key: key);
+  const BaseScreen({Key key, this.title = 'BACK', this.children}) : super(key: key);
   final String title;
   final List<Widget> children;
   @override
