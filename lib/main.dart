@@ -4,6 +4,7 @@ import 'views/routers/app_routers.dart';
 import 'views/screens/sign_in/index.dart';
 import 'views/screens/sign_up/index.dart';
 import 'views/screens/sign_up/otp/index.dart';
+import 'views/screens/sign_up/personal/index.dart';
 import 'views/screens/welcome/index.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         AppRouters.signInScreen: (context) => SignInScreen(),
         AppRouters.signUpScreen: (context) => SignUpScreen(),
         AppRouters.signUpOTPScreen: (context) => SignUpOTPScreen(),
+        AppRouters.signUpPersonalScreen: (context) => SignUpPersonalScreen(),
       },
     );
   }

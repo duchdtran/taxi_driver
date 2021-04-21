@@ -13,4 +13,5 @@ class AppColors {
   static const  colorGrey = Color(0xFF797979);
   static const  colorBunker = Color(0xFF24272B);
   static const  colorMatterhorn = Color(0xFF505050);
+  static const  colorHawkesBlue2 = Color(0xFFD3DFEF);
 }
