@@ -40,7 +40,7 @@ class AppButton extends StatelessWidget {
     Key key,
     this.backgroundColor = AppColors.colorApple,
     this.textStyle = AppStyles.stylePoppinsBold14,
-    this.padding = const EdgeInsets.symmetric(horizontal: 40),
+    this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
     BorderRadius borderRadius,
     Icon icon,
   }) : super(key: key) {
@@ -57,7 +57,7 @@ class AppButton extends StatelessWidget {
     @required this.onPressed,
     Key key,
     this.backgroundColor = AppColors.colorWhite,
-    this.padding = const EdgeInsets.symmetric(horizontal: 40),
+    this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
     this.elevation = 2,
     TextStyle textStyle,
     BorderRadius borderRadius,

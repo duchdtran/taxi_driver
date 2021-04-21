@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../resources/color.dart';
 import '../../../resources/images.dart';
 import '../../../resources/style.dart';
+import '../../../routers/app_routers.dart';
 import '../../../widgets/app_floating_action_button.dart';
 import '../../../widgets/credit_card_widget.dart';
 import '../../base/_index.dart';
@@ -22,7 +23,9 @@ class SignUpBankCardScreen extends StatelessWidget {
           children: [
             _buildScanCreditCard(context),
             const Spacer(),
-            _buildNextStepButton(context),
+            _buildNextStepButton(context, onPressed: () {
+              Navigator.pushNamed(context, AppRouters.signUpDocumentsScreen);
+            }),
           ],
         ),
         const SizedBox(height: 40),
