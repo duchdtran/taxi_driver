@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../resources/color.dart';
 import '../../../resources/dimension.dart';
 import '../../../resources/style.dart';
+import '../../../routers/app_routers.dart';
 import '../../../widgets/app_floating_action_button.dart';
 import '../../base/_index.dart';
 import 'components/pin_view.dart';
@@ -34,7 +35,9 @@ class SignUpOTPScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildResendCode(context),
-                _buildNextStepButton(context, onPressed: () {}),
+                _buildNextStepButton(context, onPressed: () {
+                  Navigator.pushNamed(context, AppRouters.signUpPersonalScreen);
+                }),
               ],
             )
           ],
