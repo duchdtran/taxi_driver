@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/images.dart';
+
 import '../resources/color.dart';
+import '../resources/images.dart';
 import '../resources/style.dart';
 
 class AppTextFormField extends StatelessWidget {
