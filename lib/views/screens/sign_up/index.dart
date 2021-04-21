@@ -104,7 +104,7 @@ class SignUpScreen extends StatelessWidget {
   }
 
   Widget _buildContinueButton(BuildContext context, {VoidCallback onPress}) {
-    return AppButton.elevated(
+    return AppButton.icon(
       label: 'Continue',
       onPressed: onPress,
     );
