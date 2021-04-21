@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'views/routers/app_routers.dart';
 import 'views/screens/sign_in/index.dart';
 import 'views/screens/sign_up/bank_card/index.dart';
+import 'views/screens/sign_up/documents/index.dart';
 import 'views/screens/sign_up/index.dart';
 import 'views/screens/sign_up/otp/index.dart';
 import 'views/screens/sign_up/personal/index.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         AppRouters.signUpOTPScreen: (context) => SignUpOTPScreen(),
         AppRouters.signUpPersonalScreen: (context) => SignUpPersonalScreen(),
         AppRouters.signUpBankCardScreen: (context) => SignUpBankCardScreen(),
+        AppRouters.signUpDocumentsScreen: (context) => SignUpDocumentsScreen(),
       },
     );
   }
