@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../resources/color.dart';
-import '../../../resources/dimension.dart';
 import '../../../resources/style.dart';
 import '../../../routers/app_routers.dart';
 import '../../../widgets/app_floating_action_button.dart';
@@ -13,36 +12,24 @@ class SignUpOTPScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScreen(
       title: 'BACK',
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(AppDimension.screenHorizontalMargin),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 148),
+        _buildTitle(context),
+        const SizedBox(height: 8),
+        _buildGuild(context),
+        const SizedBox(height: 40),
+        _buildPinView(context),
+        const SizedBox(height: 46),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(height: 148),
-            _buildTitle(context),
-            const SizedBox(height: 8),
-            _buildGuild(context),
-            const SizedBox(height: 40),
-            _buildPinView(context),
-            const SizedBox(height: 46),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildResendCode(context),
-                _buildNextStepButton(context, onPressed: () {
-                  Navigator.pushNamed(context, AppRouters.signUpPersonalScreen);
-                }),
-              ],
-            )
+            _buildResendCode(context),
+            _buildNextStepButton(context, onPressed: () {
+              Navigator.pushNamed(context, AppRouters.signUpPersonalScreen);
+            }),
           ],
-        ),
-      ),
+        )
+      ],
     );
   }
 

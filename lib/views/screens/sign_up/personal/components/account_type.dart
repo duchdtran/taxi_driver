@@ -1,14 +1,13 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/style.dart';
-import 'package:taxi_driver/views/widgets/app_button.dart';
-import 'package:taxi_driver/views/widgets/custom_toggle_buttons.dart';
+import '../../../../resources/color.dart';
+import '../../../../resources/style.dart';
+import '../../../../widgets/custom_toggle_buttons.dart';
 
 class AccountType extends StatefulWidget {
-  AccountType({this.labels});
-  List<String> labels;
+  const AccountType({this.labels});
+  final List<String> labels;
   @override
   _AccountTypeState createState() => _AccountTypeState();
 }
