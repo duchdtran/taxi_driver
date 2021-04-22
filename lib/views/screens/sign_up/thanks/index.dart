@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:taxi_driver/views/resources/color.dart';
-import 'package:taxi_driver/views/resources/dimension.dart';
-import 'package:taxi_driver/views/resources/images.dart';
-import 'package:taxi_driver/views/resources/style.dart';
-import 'package:taxi_driver/views/widgets/app_button.dart';
-import '../../base/_index.dart';
+
+import '../../../resources/color.dart';
+import '../../../resources/dimension.dart';
+import '../../../resources/images.dart';
+import '../../../resources/style.dart';
+import '../../../widgets/app_button.dart';
 
 class SignUpThanksScreen extends StatelessWidget {
   @override
