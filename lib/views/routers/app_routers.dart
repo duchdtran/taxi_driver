@@ -6,4 +6,5 @@ class AppRouters {
   static const signUpPersonalScreen = '/sign_up/personal';
   static const signUpBankCardScreen = '/sign_up/bank_card';
   static const signUpDocumentsScreen = '/sign_up/documents';
+  static const signUpThanksScreen = '/sign_up/thanks';
 }
