@@ -59,7 +59,7 @@ class CreditCardWidget extends StatelessWidget {
 
   Widget _buildImageCard(BuildContext context) {
     return Image.asset(
-      AppImages.masterCard,
+      AppImages.icMasterCard,
       width: 31,
       height: 19,
     );

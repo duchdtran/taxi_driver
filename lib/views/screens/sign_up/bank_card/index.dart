@@ -70,7 +70,7 @@ class SignUpBankCardScreen extends StatelessWidget {
         ),
       ),
       icon: Image.asset(
-        AppImages.camera,
+        AppImages.icCamera,
         width: 22,
         height: 18,
       ),

@@ -54,7 +54,7 @@ class AppButton extends StatelessWidget {
 
   AppButton.elevated({
     @required this.label,
-    @required this.onPressed,
+    this.onPressed,
     Key key,
     this.backgroundColor = AppColors.colorWhite,
     this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
