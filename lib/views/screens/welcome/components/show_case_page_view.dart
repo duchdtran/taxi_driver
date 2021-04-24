@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../resources/color.dart';
 import '../../../resources/images.dart';
-import '../../../widgets/app_sized_box.dart';
 
 class ShowCasePageView extends StatelessWidget {
   final int indexPosition = 0;
@@ -10,12 +9,12 @@ class ShowCasePageView extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Image.asset(AppImages.bgWelcome),
+          child: Image.asset(
+            AppImages.bgWelcome,
+            fit: BoxFit.fitHeight,
           ),
         ),
-        const AppSizedBox.height(50),
+        const SizedBox(height: 50),
         Center(
           child: Wrap(
             spacing: 10,

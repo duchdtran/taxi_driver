@@ -6,39 +6,27 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../resources/color.dart';
-import '../../resources/dimension.dart';
 import '../../resources/style.dart';
+import '../../routers/app_routers.dart';
 import '../../widgets/app_button.dart';
-import '../../widgets/app_sized_box.dart';
 import '../base/_index.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      title: 'BACK',
-      body: _buildBody(context),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppDimension.screenHorizontalMargin,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildTitle(context),
-          const AppSizedBox.height(30),
-          _buildPhoneNumberFormField(context),
-          const AppSizedBox.height(45),
-          _buildTermAndPrivacy(context),
-          const AppSizedBox.height(45),
-          _buildContinueButton(context),
-        ],
-      ),
+      children: [
+        const SizedBox(height: 224),
+        _buildTitle(context),
+        const SizedBox(height: 30),
+        _buildPhoneNumberFormField(context),
+        const SizedBox(height: 45),
+        _buildTermAndPrivacy(context),
+        const SizedBox(height: 45),
+        _buildContinueButton(context, onPress: () {
+          Navigator.pushNamed(context, AppRouters.signUpOTPScreen);
+        }),
+      ],
     );
   }
 
@@ -115,7 +103,10 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildContinueButton(BuildContext context) {
-    return AppButton.elevated(label: 'Continue', onPressed: () {});
+  Widget _buildContinueButton(BuildContext context, {VoidCallback onPress}) {
+    return AppButton.icon(
+      label: 'Continue',
+      onPressed: onPress,
+    );
   }
 }

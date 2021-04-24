@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/color.dart';
-import '../../resources/dimension.dart';
 import '../../resources/style.dart';
-import '../../routers/AppRouters.dart';
+import '../../routers/app_routers.dart';
 import '../../widgets/app_button.dart';
-import '../../widgets/app_sized_box.dart';
 import '../base/_index.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -13,38 +11,24 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScreen(
       title: 'WELCOME',
-      body: _buildBody(context),
+      children: [
+        const SizedBox(height: 200),
+        _buildTitle(context),
+        const SizedBox(height: 36),
+        _buildPhoneNumberFormField(context),
+        const SizedBox(height: 40),
+        _buildPasswordFormField(context),
+        const SizedBox(height: 30),
+        _buildForgotPasswordButton(context),
+        const SizedBox(height: 30),
+        _buildLoginButton(context),
+        const SizedBox(height: 35),
+        _buildCreateAccountButton(context, onPressed: () {
+          Navigator.pushNamed(context, AppRouters.signUpScreen);
+        }),
+      ],
     );
   }
-}
-
-Widget _buildBody(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(
-      horizontal: AppDimension.screenHorizontalMargin,
-    ),
-    child: SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AppSizedBox.height(200),
-          _buildTitle(context),
-          const AppSizedBox.height(36),
-          _buildPhoneNumberFormField(context),
-          const AppSizedBox.height(40),
-          _buildPasswordFormField(context),
-          const AppSizedBox.height(30),
-          _buildForgotPasswordButton(context),
-          const AppSizedBox.height(30),
-          _buildLoginButton(context),
-          const AppSizedBox.height(35),
-          _buildCreateAccountButton(context, onPressed: (){
-            Navigator.pushNamed(context, AppRouters.SIGN_UP_SCREEN);
-          }),
-        ],
-      ),
-    ),
-  );
 }
 
 Widget _buildTitle(BuildContext context) {
@@ -94,7 +78,8 @@ Widget _buildLoginButton(BuildContext context) {
   return AppButton.icon(label: 'Login', onPressed: () {});
 }
 
-Widget _buildCreateAccountButton(BuildContext context, {VoidCallback onPressed}) {
+Widget _buildCreateAccountButton(BuildContext context,
+    {VoidCallback onPressed}) {
   return TextButton(
       onPressed: onPressed,
       child: const Text(

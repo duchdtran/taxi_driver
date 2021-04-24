@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+
 import '../../resources/color.dart';
+import '../../resources/dimension.dart';
 import '../../resources/images.dart';
 import '../../resources/style.dart';
 
 class BaseScreen extends StatelessWidget {
-  const BaseScreen({Key key, this.title, this.body}) : super(key: key);
+  const BaseScreen({Key key, this.title = 'BACK', this.children}) : super(key: key);
   final String title;
-  final Widget body;
+  final List<Widget> children;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +29,17 @@ class BaseScreen extends StatelessWidget {
           elevation: 0,
           backgroundColor: AppColors.colorTransparent,
         ),
-        body: body,
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: AppDimension.screenHorizontalMargin),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          ),
+        ),
       ),
     );
   }
