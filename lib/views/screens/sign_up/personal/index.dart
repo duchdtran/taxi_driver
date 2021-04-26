@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../resources/color.dart';
 import '../../../resources/images.dart';
-import '../../../routers/app_routers.dart';
+import '../../../routers/app_routers.gr.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_text_form_field.dart';
 import '../../base/_index.dart';
@@ -27,7 +27,7 @@ class SignUpPersonalScreen extends StatelessWidget {
         _buildPasswordFormField(context),
         const SizedBox(height: 45),
         _buildCreateAccountButton(context, onPressed: () {
-          Navigator.pushNamed(context, AppRouters.signUpBankCardScreen);
+          const SignUpBankCardScreen().show(context);
         }),
         const SizedBox(height: 62),
       ],

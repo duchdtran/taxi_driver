@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../resources/color.dart';
 import '../../resources/style.dart';
-import '../../routers/app_routers.dart';
+import '../../routers/app_routers.gr.dart';
 import '../../widgets/app_button.dart';
 import '../base/_index.dart';
 
@@ -24,7 +24,7 @@ class SignInScreen extends StatelessWidget {
         _buildLoginButton(context),
         const SizedBox(height: 35),
         _buildCreateAccountButton(context, onPressed: () {
-          Navigator.pushNamed(context, AppRouters.signUpScreen);
+          const SignUpScreen().show(context);
         }),
       ],
     );

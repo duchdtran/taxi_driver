@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../resources/style.dart';
-import '../../../routers/app_routers.dart';
+import '../../../routers/app_routers.gr.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_stepper_widget.dart';
 import '../../base/_index.dart';
@@ -19,7 +19,7 @@ class SignUpDocumentsScreen extends StatelessWidget {
       _buildCreateAccountButton(
         context,
         onPressed: () {
-          Navigator.pushNamed(context, AppRouters.signUpThanksScreen);
+          const SignUpThanksScreen().show(context);
         },
       ),
       const SizedBox(height: 37),

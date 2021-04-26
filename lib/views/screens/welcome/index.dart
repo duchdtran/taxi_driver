@@ -1,9 +1,10 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
-import '../../routers/app_routers.dart';
+import '../../routers/app_routers.gr.dart';
 import '../../widgets/app_button.dart';
 import 'components/show_case_page_view.dart';
 
@@ -31,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
         _buildLoginButton(
           context,
           onPressed: () {
-            Navigator.pushNamed(context, AppRouters.signInScreen);
+            const SignInScreen().show(context);
           },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,
@@ -41,7 +42,7 @@ class WelcomeScreen extends StatelessWidget {
         _buildCreateAccountButton(
           context,
           onPressed: () {
-            Navigator.pushNamed(context, AppRouters.signUpScreen);
+            const SignUpScreen().show(context);
           },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,

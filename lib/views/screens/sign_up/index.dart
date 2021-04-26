@@ -7,7 +7,7 @@ import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../resources/color.dart';
 import '../../resources/style.dart';
-import '../../routers/app_routers.dart';
+import '../../routers/app_routers.gr.dart';
 import '../../widgets/app_button.dart';
 import '../base/_index.dart';
 
@@ -24,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
         _buildTermAndPrivacy(context),
         const SizedBox(height: 45),
         _buildContinueButton(context, onPress: () {
-          Navigator.pushNamed(context, AppRouters.signUpOTPScreen);
+          const SignUpOTPScreen().show(context);
         }),
       ],
     );
