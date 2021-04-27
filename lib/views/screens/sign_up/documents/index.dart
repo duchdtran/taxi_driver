@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import '../../../resources/style.dart';
+import '../../../routers/app_routers.gr.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_stepper_widget.dart';
 import '../../base/_index.dart';
@@ -14,7 +16,12 @@ class SignUpDocumentsScreen extends StatelessWidget {
       const SizedBox(height: 50),
       _buildTermAndPrivacy(context),
       const SizedBox(height: 50),
-      _buildCreateAccountButton(context),
+      _buildCreateAccountButton(
+        context,
+        onPressed: () {
+          const SignUpThanksScreen().show(context);
+        },
+      ),
       const SizedBox(height: 37),
     ]);
   }
@@ -47,7 +54,11 @@ class SignUpDocumentsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCreateAccountButton(BuildContext context) {
-    return AppButton.icon(label: 'Create Account', onPressed: () {});
+  Widget _buildCreateAccountButton(BuildContext context,
+      {VoidCallback onPressed}) {
+    return AppButton.icon(
+      label: 'Create Account',
+      onPressed: onPressed,
+    );
   }
 }

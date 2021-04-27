@@ -1,21 +1,31 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../resources/color.dart';
 import '../../../../resources/style.dart';
 
-// ignore: must_be_immutable
 class PinView extends StatelessWidget {
-  Color cursorColor;
-  int length;
-  BorderRadius borderRadius;
-  double width;
-  double height;
+  const PinView({
+    Key key,
+    this.cursorColor,
+    this.length,
+    this.borderRadius,
+    this.width,
+    this.height,
+    this.onComplete, this.focusNode,
+  }) : super(key: key);
+
+  final Color cursorColor;
+  final int length;
+  final BorderRadius borderRadius;
+  final double width;
+  final double height;
+  final Function(String) onComplete;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
     return PinCodeTextField(
+      focusNode: focusNode,
       appContext: context,
       length: 4,
       blinkWhenObscuring: true,
@@ -44,12 +54,8 @@ class PinView extends StatelessWidget {
           blurRadius: 15,
         )
       ],
-      onCompleted: (v) {
-        log("Completed: $v");
-      },
-
-      onChanged: (value) {
-      },
+      onCompleted: onComplete,
+      onChanged: (value) {},
     );
   }
 }

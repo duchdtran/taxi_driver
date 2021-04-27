@@ -1,17 +1,29 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:flutter_conditional_rendering/conditional.dart';
 
 import '../../resources/color.dart';
 import '../../resources/style.dart';
-import '../../routers/app_routers.dart';
+import '../../routers/app_routers.gr.dart';
 import '../../widgets/app_button.dart';
+import '../../widgets/phone_form_field.dart';
 import '../base/_index.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  bool _isShowContinue;
+
+  @override
+  void initState() {
+    _isShowContinue = false;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
@@ -24,7 +36,7 @@ class SignUpScreen extends StatelessWidget {
         _buildTermAndPrivacy(context),
         const SizedBox(height: 45),
         _buildContinueButton(context, onPress: () {
-          Navigator.pushNamed(context, AppRouters.signUpOTPScreen);
+          const SignUpOTPScreen().show(context);
         }),
       ],
     );
@@ -46,7 +58,8 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _buildPhoneNumberFormField(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(11),
+      height: 65,
+      // padding: const EdgeInsets.all/(11),
       decoration: BoxDecoration(
         color: AppColors.colorWhite,
         borderRadius: BorderRadius.circular(12),
@@ -58,25 +71,11 @@ class SignUpScreen extends StatelessWidget {
           ),
         ],
       ),
-      child: InternationalPhoneNumberInput(
-        onInputChanged: (number) {
-          log(number.phoneNumber);
-        },
-        onInputValidated: (value) {
-          log(value.toString());
-        },
-        selectorConfig: const SelectorConfig(
-          selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-        ),
-        hintText: 'Enter your phone number',
-        ignoreBlank: false,
-        autoValidateMode: AutovalidateMode.disabled,
-        selectorTextStyle: const TextStyle(color: Colors.black),
-        formatInput: false,
-        keyboardType:
-            const TextInputType.numberWithOptions(signed: true, decimal: true),
-        onSaved: (number) {
-          log('On Saved: $number');
+      child: PhoneFormField(
+        onFieldSubmitted: (phoneNumber) {
+          setState(() {
+            _isShowContinue = true;
+          });
         },
       ),
     );
@@ -104,9 +103,16 @@ class SignUpScreen extends StatelessWidget {
   }
 
   Widget _buildContinueButton(BuildContext context, {VoidCallback onPress}) {
-    return AppButton.elevated(
-      label: 'Continue',
-      onPressed: onPress,
+    return Conditional.single(
+      context: context,
+      conditionBuilder: (_) => _isShowContinue,
+      widgetBuilder: (_) => AppButton.icon(
+        label: 'Continue',
+        onPressed: onPress,
+      ),
+      fallbackBuilder: (_) => AppButton.elevated(
+        label: 'Continue',
+      ),
     );
   }
 }

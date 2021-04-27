@@ -9,9 +9,9 @@ class ShowCasePageView extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Image.asset(AppImages.bgWelcome),
+          child: Image.asset(
+            AppImages.bgWelcome,
+            fit: BoxFit.fitHeight,
           ),
         ),
         const SizedBox(height: 50),
