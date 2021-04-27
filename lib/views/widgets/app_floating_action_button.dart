@@ -62,7 +62,7 @@ class AppFloatingActionButtonArrowForward extends StatelessWidget {
       : super(key: key);
 
   const AppFloatingActionButtonArrowForward.inactive({
-    @required this.onPressed,
+    this.onPressed,
     Key key,
     this.width = 50,
     this.height = 50,

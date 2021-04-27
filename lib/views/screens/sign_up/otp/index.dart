@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_conditional_rendering/conditional.dart';
 
 import '../../../resources/color.dart';
 import '../../../resources/style.dart';
@@ -7,7 +8,29 @@ import '../../../widgets/app_floating_action_button.dart';
 import '../../base/_index.dart';
 import 'components/pin_view.dart';
 
-class SignUpOTPScreen extends StatelessWidget {
+class SignUpOTPScreen extends StatefulWidget {
+  @override
+  _SignUpOTPScreenState createState() => _SignUpOTPScreenState();
+}
+
+class _SignUpOTPScreenState extends State<SignUpOTPScreen> {
+  bool _isShowContinue;
+  FocusNode _otpFocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _isShowContinue = false;
+    _otpFocusNode = FocusNode()..requestFocus();
+  }
+
+  @override
+  void dispose() {
+    _otpFocusNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
@@ -67,7 +90,14 @@ class SignUpOTPScreen extends StatelessWidget {
   }
 
   Widget _buildPinView(BuildContext context) {
-    return PinView();
+    return PinView(
+      focusNode: _otpFocusNode,
+      onComplete: (otp) {
+        setState(() {
+          _isShowContinue = true;
+        });
+      },
+    );
   }
 
   Widget _buildResendCode(BuildContext context) {
@@ -89,8 +119,14 @@ class SignUpOTPScreen extends StatelessWidget {
   }
 
   Widget _buildNextStepButton(BuildContext context, {VoidCallback onPressed}) {
-    return AppFloatingActionButtonArrowForward.active(
-      onPressed: onPressed,
+    return Conditional.single(
+      context: context,
+      conditionBuilder: (_) => _isShowContinue,
+      widgetBuilder: (_) => AppFloatingActionButtonArrowForward.active(
+        onPressed: onPressed,
+      ),
+      fallbackBuilder: (_) => const AppFloatingActionButtonArrowForward.inactive(
+      ),
     );
   }
 }
