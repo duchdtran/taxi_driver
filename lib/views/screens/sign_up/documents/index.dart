@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import '../../../../translations/generated/l10n.dart';
 import '../../../resources/style.dart';
 import '../../../routers/app_routers.gr.dart';
 import '../../../widgets/app_button.dart';
@@ -34,18 +34,18 @@ class SignUpDocumentsScreen extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(
-            text: 'By continuing, I confirm that i have read & agree to the\n',
+          TextSpan(
+            text: '${S.of(context).sign_up_documents_by_continue_i_comfirm}\n',
             style: AppStyles.stylePoppinsRegular12,
           ),
           TextSpan(
-            text: 'Terms of Service',
+            text: S.of(context).sign_up_documents_term_of_service,
             style: AppStyles.stylePoppinsBold12,
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
-          const TextSpan(text: ' and ', style: AppStyles.stylePoppinsRegular12),
+          TextSpan(text: ' ${S.of(context).sign_up_documents_and} ', style: AppStyles.stylePoppinsRegular12),
           TextSpan(
-            text: 'Privacy Policy',
+            text: S.of(context).sign_up_documents_privacy_policy,
             style: AppStyles.stylePoppinsBold12,
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
@@ -57,7 +57,7 @@ class SignUpDocumentsScreen extends StatelessWidget {
   Widget _buildCreateAccountButton(BuildContext context,
       {VoidCallback onPressed}) {
     return AppButton.icon(
-      label: 'Create Account',
+      label: S.of(context).sign_up_documents_create_account,
       onPressed: onPressed,
     );
   }

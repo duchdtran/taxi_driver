@@ -1,0 +1,60 @@
+{
+    "welcome": "welcome",
+    "login": "Login",
+    "back": "Back",
+
+    "welcome_nice_to_meet_you": "Hello, nice to meet you!",
+    "welcome_get_a_new_exprience": "Get a new experience",
+    "welcome_or_create_my_account": "Or Create My Account",
+    "welcome_login_with_phone": "Login with Phone",
+
+    "sign_in_welcome_back": "Welcome back!",
+    "sign_in_phone_number": "Phone number",
+    "sign_in_password": "Password",
+    "sign_in_fotgot_password": "Forgot password?",
+    "sign_in_or_create_my_account": "Or Create My Account",
+
+    "sign_up_nice_to_meet_you": "Hello, nice to meet you",
+    "sign_up_join_our_company": "Join our Company!",
+    "sign_up_enter_your_phone_number": "Enter your phone number",
+    "sign_up_by_creating_an_account": "By creating an account, you agree to our",
+    "sign_up_terms_of_service": "Terms of Service",
+    "sign_up_and": "and",
+    "sign_up_privacy_policy": "Privacy policy",
+    "sign_up_continue": "Continue",
+
+    "sign_up_otp_phone_verilication": "Phone Veritilication",
+    "sign_up_otp_enter_your_otp_code": "Enter your OTP code",
+    "sign_up_otp_enter_the_4_digit_code_sent_to_you_at": "Enter the 4-digit code sent to you at {phoneNumber}.",
+    "sign_up_otp_did_you_enter_the_correct_number": " did you enter the correct number?",
+    "sign_up_otp_resend_code_in": "Resend Code in ",
+    "sign_up_otp_number_second": "{number} seconds",
+
+    "sign_up_personal_free": "Free",
+    "sign_up_personal_business": "Business",
+    "sign_up_personal_first_name": "First name",
+    "sign_up_personal_last_name": "Last name",
+    "sign_up_personal_home_address": "Home address",
+    "sign_up_personal_password": "Password",
+    "sign_up_personal_create_account": "Create Account",
+
+    "sign_up_bank_card_month_year": "MONTH/YEAR",
+    "sign_up_bank_card_card_owner": "CARD OWNER",
+    "sign_up_bank_card_cvc_cvv": "CVC2/CVV2",
+    "sign_up_bank_card_by_continue_i_comfirm": "By continuing, I confirm that I have read & agree to the",
+    "sign_up_bank_card_term_of_service": "Term of Service",
+    "sign_up_bank_card_and": "and",
+    "sign_up_bank_card_privacy_policy": "Privacy Policy",
+    "sign_up_bank_card_scan_credit_card": "Scan Credit Card",
+
+    "sign_up_documents_by_continue_i_comfirm": "By continuing, I confirm that I have read & agree to the",
+    "sign_up_documents_term_of_service": "Term of Service",
+    "sign_up_documents_and": "and",
+    "sign_up_documents_privacy_policy": "Privacy Policy",
+    "sign_up_documents_create_account": "Create Account",
+
+    "sign_up_thanks_thank_you": "Thank you",
+    "sign_up_thank_you_for_registering_with_company": "Thank you for registering with Company",
+    "sign_up_thanks_please_complete_your_registration": "Please complete your registration and be activated by visiting our office.",
+    "sign_up_thanks_go_to_profile": "Go to Profile"
+}

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
+import '../../../translations/generated/l10n.dart';
 import '../../resources/color.dart';
 import '../../resources/style.dart';
 import '../../routers/app_routers.gr.dart';
@@ -44,13 +44,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget _buildTitle(BuildContext context) {
     return RichText(
-        text: const TextSpan(children: [
+        text: TextSpan(children: [
       TextSpan(
-        text: 'Hello, nice to meet you!\n',
+        text: '${S.of(context).sign_up_nice_to_meet_you}\n',
         style: AppStyles.stylePoppinsRegular12,
       ),
       TextSpan(
-        text: 'Join our Company!',
+        text: S.of(context).sign_up_join_our_company,
         style: AppStyles.stylePoppinsBold24,
       ),
     ]));
@@ -59,7 +59,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget _buildPhoneNumberFormField(BuildContext context) {
     return Container(
       height: 65,
-      // padding: const EdgeInsets.all/(11),
       decoration: BoxDecoration(
         color: AppColors.colorWhite,
         borderRadius: BorderRadius.circular(12),
@@ -72,6 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ],
       ),
       child: PhoneFormField(
+        hintText: S.of(context).sign_up_enter_your_phone_number,
         onFieldSubmitted: (phoneNumber) {
           setState(() {
             _isShowContinue = true;
@@ -84,17 +84,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget _buildTermAndPrivacy(BuildContext context) {
     return RichText(
       text: TextSpan(children: [
-        const TextSpan(
-            text: 'By creating an account, you agree to our\n',
+        TextSpan(
+            text: '${S.of(context).sign_up_by_creating_an_account}\n',
             style: AppStyles.stylePoppinsRegular12),
         TextSpan(
-          text: 'Terms of Service',
+          text: S.of(context).sign_up_terms_of_service,
           style: AppStyles.stylePoppinsBold12,
           recognizer: TapGestureRecognizer()..onTap = () {},
         ),
-        const TextSpan(text: ' and ', style: AppStyles.stylePoppinsRegular12),
         TextSpan(
-          text: 'Privacy Policy',
+            text: ' ${S.of(context).sign_up_and} ',
+            style: AppStyles.stylePoppinsRegular12),
+        TextSpan(
+          text: S.of(context).sign_up_privacy_policy,
           style: AppStyles.stylePoppinsBold12,
           recognizer: TapGestureRecognizer()..onTap = () {},
         ),
@@ -107,11 +109,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       context: context,
       conditionBuilder: (_) => _isShowContinue,
       widgetBuilder: (_) => AppButton.icon(
-        label: 'Continue',
+        label: S.of(context).sign_up_continue,
         onPressed: onPress,
       ),
       fallbackBuilder: (_) => AppButton.elevated(
-        label: 'Continue',
+        label: S.of(context).sign_up_continue,
       ),
     );
   }

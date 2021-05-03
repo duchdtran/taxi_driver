@@ -1,4 +1,6 @@
 analyzer:
+  exclude:
+    - "**/intl/messages_*.dart"
   errors:
     prefer_single_quotes: ignore
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-
+import '../../../../translations/generated/l10n.dart';
 import '../../../resources/color.dart';
 import '../../../resources/style.dart';
 import '../../../routers/app_routers.gr.dart';
@@ -57,12 +57,12 @@ class _SignUpOTPScreenState extends State<SignUpOTPScreen> {
 
   Widget _buildTitle(BuildContext context) {
     return RichText(
-      text: const TextSpan(children: [
+      text: TextSpan(children: [
         TextSpan(
-            text: 'Phone Verification\n',
+            text: '${S.of(context).sign_up_otp_phone_verilication}\n',
             style: AppStyles.stylePoppinsRegular12),
         TextSpan(
-          text: 'Enter your OTP code',
+          text: S.of(context).sign_up_otp_enter_your_otp_code,
           style: AppStyles.stylePoppinsBold24,
         )
       ]),
@@ -72,16 +72,13 @@ class _SignUpOTPScreenState extends State<SignUpOTPScreen> {
   Widget _buildGuild(BuildContext context) {
     return RichText(
       text: TextSpan(children: [
-        const TextSpan(
-          text: 'Enter the 4-digit code sent to you at\n',
-          style: AppStyles.stylePoppinsRegular14,
-        ),
-        const TextSpan(
-          text: '+994 10 999 00 00. ',
+        TextSpan(
+          text:
+              '${S.of(context).sign_up_otp_enter_the_4_digit_code_sent_to_you_at('+994 10 990 00 00')}\n',
           style: AppStyles.stylePoppinsRegular14,
         ),
         TextSpan(
-          text: 'did you enter the correct number?',
+          text: S.of(context).sign_up_otp_did_you_enter_the_correct_number,
           style: AppStyles.stylePoppinsBold14
               .copyWith(color: AppColors.colorApple),
         )
@@ -103,13 +100,13 @@ class _SignUpOTPScreenState extends State<SignUpOTPScreen> {
   Widget _buildResendCode(BuildContext context) {
     return RichText(
       text: TextSpan(
-        children: [
-          const TextSpan(
-            text: 'Resend Code in ',
+        children: <TextSpan> [
+          TextSpan(
+            text: S.of(context).sign_up_otp_resend_code_in,
             style: AppStyles.stylePoppinsRegular12,
           ),
           TextSpan(
-            text: '10 seconds',
+            text: S.of(context).sign_up_otp_number_second('10'),
             style: AppStyles.stylePoppinsBold12
                 .copyWith(color: AppColors.colorApple),
           ),
@@ -125,8 +122,8 @@ class _SignUpOTPScreenState extends State<SignUpOTPScreen> {
       widgetBuilder: (_) => AppFloatingActionButtonArrowForward.active(
         onPressed: onPressed,
       ),
-      fallbackBuilder: (_) => const AppFloatingActionButtonArrowForward.inactive(
-      ),
+      fallbackBuilder: (_) =>
+          const AppFloatingActionButtonArrowForward.inactive(),
     );
   }
 }

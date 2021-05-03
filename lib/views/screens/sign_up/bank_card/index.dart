@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import '../../../../translations/generated/l10n.dart';
 import '../../../resources/color.dart';
 import '../../../resources/images.dart';
 import '../../../resources/style.dart';
@@ -41,18 +41,18 @@ class SignUpBankCardScreen extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(
-            text: 'By continuing, I confirm that i have read & agree to the\n',
+          TextSpan(
+            text: '${S.of(context).sign_up_bank_card_by_continue_i_comfirm}\n',
             style: AppStyles.stylePoppinsRegular12,
           ),
           TextSpan(
-            text: 'Terms of Service',
+            text: S.of(context).sign_up_bank_card_term_of_service,
             style: AppStyles.stylePoppinsBold12,
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
-          const TextSpan(text: ' and ', style: AppStyles.stylePoppinsRegular12),
+          TextSpan(text: ' ${S.of(context).sign_up_bank_card_and} ', style: AppStyles.stylePoppinsRegular12),
           TextSpan(
-            text: 'Privacy Policy',
+            text: S.of(context).sign_up_bank_card_privacy_policy,
             style: AppStyles.stylePoppinsBold12,
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
@@ -64,7 +64,7 @@ class SignUpBankCardScreen extends StatelessWidget {
   Widget _buildScanCreditCard(BuildContext context) {
     return TextButton.icon(
       label: Text(
-        'Scan Credit Card',
+        S.of(context).sign_up_bank_card_scan_credit_card,
         style: AppStyles.stylePoppinsRegular11.copyWith(
           color: AppColors.colorGrey,
         ),

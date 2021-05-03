@@ -1,6 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
-
+import '../../../translations/generated/l10n.dart';
 import '../../resources/color.dart';
 import '../../resources/style.dart';
 import '../../routers/app_routers.gr.dart';
@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
-      title: 'WELCOME',
+      title: S.of(context).welcome.toUpperCase(),
       children: [
         const SizedBox(height: 200),
         _buildTitle(context),
@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget _buildTitle(BuildContext context) {
     return Text(
-      'Welcome back!',
+      S.of(context).sign_in_welcome_back,
       style: AppStyles.stylePoppinsBold24.copyWith(
         color: AppColors.colorNightRider,
       ),
@@ -68,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
       keyboardType: TextInputType.phone,
       focusNode: _phoneFocusNode,
       decoration: InputDecoration(
-        labelText: 'Phone number',
+        labelText: S.of(context).sign_in_phone_number,
         labelStyle: AppStyles.stylePoppinsRegular12.copyWith(
           color: AppColors.colorGrey,
         ),
@@ -90,7 +90,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return TextFormField(
       focusNode: _passwordFocusNode,
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: S.of(context).sign_in_password,
         labelStyle: AppStyles.stylePoppinsRegular12.copyWith(
           color: AppColors.colorGrey,
         ),
@@ -102,7 +102,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return TextButton(
       onPressed: () {},
       child: Text(
-        'Forgot password?',
+        S.of(context).sign_in_fotgot_password,
         style: AppStyles.stylePoppinsRegular12.copyWith(
           color: AppColors.colorNightRider,
         ),
@@ -111,15 +111,15 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget _buildLoginButton(BuildContext context) {
-    return AppButton.icon(label: 'Login', onPressed: () {});
+    return AppButton.icon(label: S.of(context).login, onPressed: () {});
   }
 
   Widget _buildCreateAccountButton(BuildContext context,
       {VoidCallback onPressed}) {
     return TextButton(
       onPressed: onPressed,
-      child: const Text(
-        'Or Create My Account',
+      child: Text(
+        S.of(context).sign_in_or_create_my_account,
         style: AppStyles.stylePoppinsLight14,
       ),
     );

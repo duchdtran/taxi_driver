@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-
+import '../../../translations/generated/l10n.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/images.dart';
 import '../../resources/style.dart';
 
 class BaseScreen extends StatelessWidget {
-  const BaseScreen({Key key, this.title = 'BACK', this.children})
-      : super(key: key);
+  const BaseScreen({
+    @required this.children,
+    Key key,
+    this.title,
+  })  : assert(children != null),
+        super(key: key);
   final String title;
   final List<Widget> children;
   @override
@@ -27,7 +31,7 @@ class BaseScreen extends StatelessWidget {
           backgroundColor: AppColors.colorTransparent,
           appBar: AppBar(
             title: Text(
-              title,
+              title ?? S.of(context).back,
               style: AppStyles.stylePoppinsBold14
                   .copyWith(color: AppColors.colorWhite),
             ),
