@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
+import '../../../../translations/generated/l10n.dart';
 
 import '../../../resources/color.dart';
 import '../../../resources/images.dart';
-import '../../../routers/app_routers.dart';
+import '../../../routers/app_routers.gr.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/app_text_form_field.dart';
 import '../../base/_index.dart';
@@ -82,7 +83,7 @@ class _SignUpPersonalScreenState extends State<SignUpPersonalScreen> {
         _buildPasswordFormField(context),
         const SizedBox(height: 45),
         _buildCreateAccountButton(context, onPressed: () {
-          Navigator.pushNamed(context, AppRouters.signUpBankCardScreen);
+          const SignUpBankCardScreen().show(context);
         }),
         const SizedBox(height: 62),
       ],
@@ -119,14 +120,15 @@ class _SignUpPersonalScreenState extends State<SignUpPersonalScreen> {
   }
 
   Widget _buildTypeAccount(BuildContext context) {
-    return const AccountType(
-      labels: ['Free', 'Buess'],
-    );
+    return AccountType(children: [
+      Text(S.of(context).sign_up_personal_free,),
+      Text(S.of(context).sign_up_personal_business),
+    ]);
   }
 
   Widget _buildFirstNameFormField(BuildContext context) {
     return AppTextFormField(
-      labelText: 'First name',
+      labelText: S.of(context).sign_up_personal_first_name,
       focusNode: _firstNameFocusNode,
       onFieldSubmitted: (firstName) {
         _lastNameFocusNode.requestFocus();
@@ -139,7 +141,7 @@ class _SignUpPersonalScreenState extends State<SignUpPersonalScreen> {
 
   Widget _buildLastNameFormField(BuildContext context) {
     return AppTextFormField(
-      labelText: 'Last name',
+      labelText: S.of(context).sign_up_personal_last_name,
       focusNode: _lastNameFocusNode,
       onFieldSubmitted: (lastName) {
         _homeAddressFocusNode.requestFocus();
@@ -152,7 +154,7 @@ class _SignUpPersonalScreenState extends State<SignUpPersonalScreen> {
 
   Widget _buildHomeAddressFormField(BuildContext context) {
     return AppTextFormField(
-      labelText: 'Home address',
+      labelText: S.of(context).sign_up_personal_home_address,
       focusNode: _homeAddressFocusNode,
       onFieldSubmitted: (homeAddress) {
         _passwordFocusNode.requestFocus();
@@ -165,7 +167,7 @@ class _SignUpPersonalScreenState extends State<SignUpPersonalScreen> {
 
   Widget _buildPasswordFormField(BuildContext context) {
     return AppTextFormField(
-      labelText: 'Password',
+      labelText: S.of(context).sign_up_personal_password,
       showPassword: true,
       obscureText: true,
       focusNode: _passwordFocusNode,
@@ -183,11 +185,11 @@ class _SignUpPersonalScreenState extends State<SignUpPersonalScreen> {
       context: context,
       conditionBuilder: (_) => _isShowContinue,
       widgetBuilder: (_) => AppButton.icon(
-        label: 'Create Account',
+        label: S.of(context).sign_up_personal_create_account,
         onPressed: onPressed,
       ),
       fallbackBuilder: (_) => AppButton.elevated(
-        label: 'Create Account',
+        label: S.of(context).sign_up_personal_create_account,
       ),
     );
   }

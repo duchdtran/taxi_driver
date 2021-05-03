@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'views/routers/app_routers.dart';
-import 'views/screens/sign_in/index.dart';
-import 'views/screens/sign_up/bank_card/index.dart';
-import 'views/screens/sign_up/documents/index.dart';
-import 'views/screens/sign_up/index.dart';
-import 'views/screens/sign_up/otp/index.dart';
-import 'views/screens/sign_up/personal/index.dart';
-import 'views/screens/sign_up/thanks/index.dart';
-import 'views/screens/welcome/index.dart';
+import 'translations/generated/l10n.dart';
+import 'views/routers/app_routers.gr.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        AppRouters.welcomeScreen: (context) => WelcomeScreen(),
-        AppRouters.signInScreen: (context) => SignInScreen(),
-        AppRouters.signUpScreen: (context) => SignUpScreen(),
-        AppRouters.signUpOTPScreen: (context) => SignUpOTPScreen(),
-        AppRouters.signUpPersonalScreen: (context) => SignUpPersonalScreen(),
-        AppRouters.signUpBankCardScreen: (context) => SignUpBankCardScreen(),
-        AppRouters.signUpDocumentsScreen: (context) => SignUpDocumentsScreen(),
-        AppRouters.signUpThanksScreen: (context) => SignUpThanksScreen(),
-      },
+    return MaterialApp.router(
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-
+import '../../../translations/generated/l10n.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/images.dart';
 import '../../resources/style.dart';
 
 class BaseScreen extends StatelessWidget {
-  const BaseScreen({Key key, this.title = 'BACK', this.children}) : super(key: key);
+  const BaseScreen({
+    @required this.children,
+    Key key,
+    this.title,
+  })  : assert(children != null),
+        super(key: key);
   final String title;
   final List<Widget> children;
   @override
@@ -18,25 +23,30 @@ class BaseScreen extends StatelessWidget {
           fit: BoxFit.fill,
         ),
       ),
-      child: Scaffold(
-        backgroundColor: AppColors.colorTransparent,
-        appBar: AppBar(
-          title: Text(
-            title,
-            style: AppStyles.stylePoppinsBold14
-                .copyWith(color: AppColors.colorWhite),
-          ),
-          elevation: 0,
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
           backgroundColor: AppColors.colorTransparent,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: AppDimension.screenHorizontalMargin),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
+          appBar: AppBar(
+            title: Text(
+              title ?? S.of(context).back,
+              style: AppStyles.stylePoppinsBold14
+                  .copyWith(color: AppColors.colorWhite),
+            ),
+            elevation: 0,
+            backgroundColor: AppColors.colorTransparent,
+          ),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: AppDimension.screenHorizontalMargin),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children,
+              ),
             ),
           ),
         ),

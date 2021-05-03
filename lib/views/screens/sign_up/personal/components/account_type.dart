@@ -6,8 +6,8 @@ import '../../../../resources/style.dart';
 import '../../../../widgets/custom_toggle_buttons.dart';
 
 class AccountType extends StatefulWidget {
-  const AccountType({this.labels});
-  final List<String> labels;
+  const AccountType({this.children});
+  final List<Widget> children;
   @override
   _AccountTypeState createState() => _AccountTypeState();
 }
@@ -52,10 +52,7 @@ class _AccountTypeState extends State<AccountType> {
           fillColor: AppColors.colorApple,
           borderColor: AppColors.colorApple,
           selectedBorderColor: AppColors.colorApple,
-          children: <Widget>[
-            const Text('Free'),
-            const Text('Business'),
-          ],
+          children: widget.children,
         );
       },
     );

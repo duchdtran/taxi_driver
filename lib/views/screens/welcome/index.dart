@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
+import '../../../translations/generated/l10n.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
-import '../../routers/app_routers.dart';
+import '../../routers/app_routers.gr.dart';
 import '../../widgets/app_button.dart';
 import 'components/show_case_page_view.dart';
 
@@ -31,7 +31,7 @@ class WelcomeScreen extends StatelessWidget {
         _buildLoginButton(
           context,
           onPressed: () {
-            Navigator.pushNamed(context, AppRouters.signInScreen);
+            const SignInScreen().show(context);
           },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,
@@ -41,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
         _buildCreateAccountButton(
           context,
           onPressed: () {
-            Navigator.pushNamed(context, AppRouters.signUpScreen);
+            const SignUpScreen().show(context);
           },
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimension.screenHorizontalMargin,
@@ -56,14 +56,14 @@ class WelcomeScreen extends StatelessWidget {
     return Padding(
       padding: padding,
       child: RichText(
-        text: const TextSpan(
+        text: TextSpan(
           children: [
             TextSpan(
-              text: 'Hello, nice to meet you!\n',
+              text: '${S.of(context).welcome_nice_to_meet_you}\n',
               style: AppStyles.stylePoppinsRegular14,
             ),
             TextSpan(
-              text: 'Get a new experience',
+              text: S.of(context).welcome_get_a_new_exprience,
               style: AppStyles.stylePoppinsBold24,
             ),
           ],
@@ -80,7 +80,8 @@ class WelcomeScreen extends StatelessWidget {
       {VoidCallback onPressed, EdgeInsets padding}) {
     return Padding(
       padding: padding,
-      child: AppButton.icon(label: 'Login with Phone', onPressed: onPressed),
+      child: AppButton.icon(
+          label: S.of(context).welcome_login_with_phone, onPressed: onPressed),
     );
   }
 
@@ -91,7 +92,7 @@ class WelcomeScreen extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         child: Text(
-          'Or Create My Account',
+          S.of(context).welcome_or_create_my_account,
           style: AppStyles.stylePoppinsLight14
               .copyWith(color: AppColors.colorMatterhorn),
         ),

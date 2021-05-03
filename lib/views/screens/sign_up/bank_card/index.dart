@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import '../../../../translations/generated/l10n.dart';
 import '../../../resources/color.dart';
 import '../../../resources/images.dart';
 import '../../../resources/style.dart';
-import '../../../routers/app_routers.dart';
+import '../../../routers/app_routers.gr.dart';
 import '../../../widgets/app_floating_action_button.dart';
 import '../../../widgets/credit_card_widget.dart';
 import '../../base/_index.dart';
@@ -24,7 +24,7 @@ class SignUpBankCardScreen extends StatelessWidget {
             _buildScanCreditCard(context),
             const Spacer(),
             _buildNextStepButton(context, onPressed: () {
-              Navigator.pushNamed(context, AppRouters.signUpDocumentsScreen);
+              const SignUpDocumentsScreen().show(context);
             }),
           ],
         ),
@@ -41,18 +41,18 @@ class SignUpBankCardScreen extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(
-            text: 'By continuing, I confirm that i have read & agree to the\n',
+          TextSpan(
+            text: '${S.of(context).sign_up_bank_card_by_continue_i_comfirm}\n',
             style: AppStyles.stylePoppinsRegular12,
           ),
           TextSpan(
-            text: 'Terms of Service',
+            text: S.of(context).sign_up_bank_card_term_of_service,
             style: AppStyles.stylePoppinsBold12,
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
-          const TextSpan(text: ' and ', style: AppStyles.stylePoppinsRegular12),
+          TextSpan(text: ' ${S.of(context).sign_up_bank_card_and} ', style: AppStyles.stylePoppinsRegular12),
           TextSpan(
-            text: 'Privacy Policy',
+            text: S.of(context).sign_up_bank_card_privacy_policy,
             style: AppStyles.stylePoppinsBold12,
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),
@@ -64,7 +64,7 @@ class SignUpBankCardScreen extends StatelessWidget {
   Widget _buildScanCreditCard(BuildContext context) {
     return TextButton.icon(
       label: Text(
-        'Scan Credit Card',
+        S.of(context).sign_up_bank_card_scan_credit_card,
         style: AppStyles.stylePoppinsRegular11.copyWith(
           color: AppColors.colorGrey,
         ),

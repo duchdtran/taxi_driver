@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../../translations/generated/l10n.dart';
 import '../../../resources/color.dart';
 import '../../../resources/dimension.dart';
 import '../../../resources/images.dart';
@@ -31,16 +31,18 @@ class SignUpThanksScreen extends StatelessWidget {
   }
 
   Widget _buildTitle(BuildContext context) {
-    return const Text(
-      'Thank you!',
+    return Text(
+      S.of(context).sign_up_thanks_thank_you,
       style: AppStyles.stylePoppinsBold24,
     );
   }
 
   Widget _buildTermsAndConditions(BuildContext context) {
     return Text(
-      'Thank you for registering with Company. \nPlease complete your registration and be activated by visiting our office.',
-      style: AppStyles.stylePoppinsRegular14.copyWith(color: AppColors.colorMatterhorn),
+      '${S.of(context).sign_up_thank_you_for_registering_with_company} \n${S.of(context).sign_up_thanks_please_complete_your_registration}',
+      style: AppStyles.stylePoppinsRegular14.copyWith(
+        color: AppColors.colorMatterhorn,
+      ),
     );
   }
 
@@ -53,6 +55,9 @@ class SignUpThanksScreen extends StatelessWidget {
 
   Widget _buildGoToProfileButton(BuildContext context,
       {VoidCallback onPressed}) {
-    return AppButton.icon(label: 'Go to Profile', onPressed: onPressed);
+    return AppButton.icon(
+      label: S.of(context).sign_up_thanks_go_to_profile,
+      onPressed: onPressed,
+    );
   }
 }

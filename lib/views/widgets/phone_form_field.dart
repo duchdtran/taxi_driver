@@ -5,9 +5,11 @@ import '../resources/style.dart';
 import 'app_divider.dart';
 
 class PhoneFormField extends StatelessWidget {
-  const PhoneFormField({Key key, this.onFieldSubmitted}) : super(key: key);
+  const PhoneFormField({Key key, this.onFieldSubmitted, this.hintText})
+      : super(key: key);
 
   final Function(String) onFieldSubmitted;
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,8 @@ class PhoneFormField extends StatelessWidget {
         Flexible(
           child: TextFormField(
             keyboardType: TextInputType.phone,
-            decoration: const InputDecoration(
-              hintText: 'Enter your phone number',
+            decoration: InputDecoration(
+              hintText: hintText,
               hintStyle: AppStyles.stylePoppinsRegular14,
               border: InputBorder.none,
             ),
