@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../../../translations/generated/l10n.dart';
+import '../../../ultils/keys.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/style.dart';
@@ -11,6 +13,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const ValueKey(Keys.welcomeScreenKey),
       body: _buildBody(context),
     );
   }
@@ -81,7 +84,9 @@ class WelcomeScreen extends StatelessWidget {
     return Padding(
       padding: padding,
       child: AppButton.icon(
-          label: S.of(context).welcome_login_with_phone, onPressed: onPressed),
+          key: const ValueKey(Keys.welcomeLoginButtonKey),
+          label: S.of(context).welcome_login_with_phone,
+          onPressed: onPressed),
     );
   }
 
@@ -90,6 +95,7 @@ class WelcomeScreen extends StatelessWidget {
     return Padding(
       padding: padding,
       child: TextButton(
+        key: const ValueKey(Keys.welcomeSignUpButtonKey),
         onPressed: onPressed,
         child: Text(
           S.of(context).welcome_or_create_my_account,

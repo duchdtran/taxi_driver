@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
+
 import '../../../translations/generated/l10n.dart';
+import '../../../ultils/keys.dart';
 import '../../resources/color.dart';
 import '../../resources/style.dart';
 import '../../routers/app_routers.gr.dart';
@@ -27,6 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
+      key: const ValueKey(Keys.signUpScreenKey),
       children: [
         const SizedBox(height: 224),
         _buildTitle(context),
@@ -71,6 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ],
       ),
       child: PhoneFormField(
+        key: const ValueKey(Keys.signUpPhoneFormFieldKey),
         hintText: S.of(context).sign_up_enter_your_phone_number,
         onFieldSubmitted: (phoneNumber) {
           setState(() {
@@ -82,8 +86,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Widget _buildTermAndPrivacy(BuildContext context) {
-    return RichText(
-      text: TextSpan(children: [
+    return Text.rich(
+      TextSpan(children: [
         TextSpan(
             text: '${S.of(context).sign_up_by_creating_an_account}\n',
             style: AppStyles.stylePoppinsRegular12),

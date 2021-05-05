@@ -1,6 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+
 import '../../../translations/generated/l10n.dart';
+import '../../../ultils/keys.dart';
 import '../../resources/color.dart';
 import '../../resources/style.dart';
 import '../../routers/app_routers.gr.dart';
@@ -34,6 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(
+      key: const ValueKey(Keys.loginScreenKey),
       title: S.of(context).welcome.toUpperCase(),
       children: [
         const SizedBox(height: 200),
@@ -65,6 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget _buildPhoneNumberFormField(BuildContext context) {
     return TextFormField(
+      key: const ValueKey(Keys.loginPhoneFormFieldKey),
       keyboardType: TextInputType.phone,
       focusNode: _phoneFocusNode,
       decoration: InputDecoration(
@@ -88,6 +92,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget _buildPasswordFormField(BuildContext context) {
     return TextFormField(
+      key: const ValueKey(Keys.loginPasswordFormFieldKey),
       focusNode: _passwordFocusNode,
       decoration: InputDecoration(
         labelText: S.of(context).sign_in_password,
