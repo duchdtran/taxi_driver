@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../resources/color.dart';
 import '../resources/style.dart';
+import '../widgets/my_context.dart';
 
 // ignore: must_be_immutable
 class AppButton extends StatelessWidget {
@@ -9,7 +10,6 @@ class AppButton extends StatelessWidget {
     @required this.onPressed,
     Key key,
     this.textStyle = AppStyles.stylePoppinsBold14,
-    this.backgroundColor = AppColors.colorApple,
   }) : super(key: key);
 
   AppButton.outline({
@@ -27,7 +27,6 @@ class AppButton extends StatelessWidget {
     @required this.label,
     @required this.onPressed,
     Key key,
-    this.backgroundColor = AppColors.colorApple,
     this.textStyle = AppStyles.stylePoppinsBold14,
     BorderRadius borderRadius,
   }) : super(key: key) {
@@ -38,7 +37,6 @@ class AppButton extends StatelessWidget {
     @required this.label,
     @required this.onPressed,
     Key key,
-    this.backgroundColor = AppColors.colorApple,
     this.textStyle = AppStyles.stylePoppinsBold14,
     this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
     BorderRadius borderRadius,
@@ -56,7 +54,6 @@ class AppButton extends StatelessWidget {
     @required this.label,
     this.onPressed,
     Key key,
-    this.backgroundColor = AppColors.colorWhite,
     this.padding = const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
     this.elevation = 2,
     TextStyle textStyle,
@@ -105,7 +102,7 @@ class AppButton extends StatelessWidget {
           );
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor ?? context.primaryColor,
         side: side,
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius ?? BorderRadius.zero,

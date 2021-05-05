@@ -9,4 +9,15 @@ class AppImages {
   static const icView = 'assets/images/icons/view.png';
   static const icMasterCard = 'assets/images/icons/master_card.png';
   static const icArrawDown = 'assets/images/icons/arrow_down.png';
+
+  static String getImgPath(String name,
+      {String folder = '', String format = 'png', bool needDark = true}) {
+    String finalImagePath;
+    if (needDark) {
+      finalImagePath = 'assets/images/${folder}_dark/$name.$format';
+    } else {
+      finalImagePath = 'assets/images/$folder/$name.$format';
+    }
+    return finalImagePath;
+  }
 }

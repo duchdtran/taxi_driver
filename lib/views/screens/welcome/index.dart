@@ -5,12 +5,14 @@ import '../../resources/dimension.dart';
 import '../../resources/style.dart';
 import '../../routers/app_routers.gr.dart';
 import '../../widgets/app_button.dart';
+import '../../widgets/my_context.dart';
 import 'components/show_case_page_view.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.bgColor,
       body: _buildBody(context),
     );
   }

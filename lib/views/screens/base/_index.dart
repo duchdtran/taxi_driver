@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '../../../translations/generated/l10n.dart';
 import '../../resources/color.dart';
 import '../../resources/dimension.dart';
 import '../../resources/images.dart';
 import '../../resources/style.dart';
+import '../../widgets/my_context.dart';
 
 class BaseScreen extends StatelessWidget {
   const BaseScreen({
@@ -28,7 +30,7 @@ class BaseScreen extends StatelessWidget {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
-          backgroundColor: AppColors.colorTransparent,
+          backgroundColor: context.bgColor,
           appBar: AppBar(
             title: Text(
               title ?? S.of(context).back,
